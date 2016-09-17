@@ -19,12 +19,10 @@
       <tr>
         <td><%= version.index %></td>
         <td><%= version.created_at %></td>
-        <td><%= version.version_author %></td>
-        <td><%= version.terminator %></td>
-        
+        <td><%= version.version_author %></td>        
         <td><%= version.event.humanize %></td>
-        <td><%= link_to 'Diff', '' %></td>
-        <td><%= link_to 'Rollback', '' %></td>
+        <td><%= link_to 'Diff', diff_document_version_path(document, version) %></td>
+        <td><%= link_to 'Rollback', rollback_document_version_path(document, version) %></td>
       </tr>
     <% end %>
   </tbody>

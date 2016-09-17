@@ -1,5 +1,6 @@
 class VersionsController < ApplicationController
-  before_action :require_user
+  
+  before_action :authenticate_user!
   before_action :set_document_and_version, only: [:diff, :rollback, :destroy]
  
   def diff
