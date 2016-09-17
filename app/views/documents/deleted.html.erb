@@ -16,8 +16,7 @@
       <tr>
         <td><%= document.id %></td>
         <td><%= document.name %></td>
-        <td><%= document.content %></td>
-        <td><%= find_version_author_name(document_version) %></td>
+        <td><%= document.content %></td>        
         <td><%= document.created_at %></td>
         <td><%= link_to 'Bringback', bringback_version_path(document_version), method: 'PATCH' %></td>
       </tr>

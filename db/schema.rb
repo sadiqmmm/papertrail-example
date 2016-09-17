@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160917031141) do
+ActiveRecord::Schema.define(version: 20160917035928) do
+
+  create_table "document_versions", force: :cascade do |t|
+    t.string   "item_type",       null: false
+    t.integer  "item_id",         null: false
+    t.string   "event",           null: false
+    t.string   "whodunnit"
+    t.text     "object"
+    t.datetime "created_at"
+    t.string   "author_username"
+    t.integer  "word_count"
+    t.index ["item_type", "item_id"], name: "index_document_versions_on_item_type_and_item_id"
+  end
 
   create_table "documents", force: :cascade do |t|
     t.string   "name"
