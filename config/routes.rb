@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
 	resources :documents do
+		
+		collection do 
+      get :deleted # <= this
+    end
+
 	  resources :versions, only: [:destroy] do
 	    member do
 	      get :diff, to: 'versions#diff'
@@ -8,6 +13,12 @@ Rails.application.routes.draw do
 	    end
 	  end
 	end
+
+	resources :versions, only: [] do
+    member do
+      patch :bringback  # <= and that
+    end
+  end
 
   devise_for :users
 

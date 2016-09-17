@@ -13,6 +13,18 @@ class VersionsController < ApplicationController
     document.save
     redirect_to edit_document_path(document)
   end
+
+  def bringback
+    version = DocumentVersion.find(params[:id])
+    
+    @document = version.reify
+    @document.save
+    
+    # Let's remove the version since the document is undeleted
+    version.delete
+
+    redirect_to root_path, notice: 'The document was successfully brought back!'
+  end
  
   private
  

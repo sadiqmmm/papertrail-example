@@ -61,6 +61,11 @@ class DocumentsController < ApplicationController
     end
   end
 
+  # Get all the versions where the event was destroy
+  def deleted
+    @documents = DocumentVersion.where(event: 'destroy')
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_document
